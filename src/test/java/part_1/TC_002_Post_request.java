@@ -1,7 +1,7 @@
 package part_1;
 
 import org.json.simple.JSONObject;
-import org.junit.Assert;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
@@ -42,12 +42,12 @@ public class TC_002_Post_request {
 		// asserting status code
 		int statuscode = response.statusCode();
 		System.out.println("Status code received: " + statuscode);
-		Assert.assertEquals(201, statuscode);
+		Assert.assertEquals(statuscode,201);
 		
 		//assert 'name' field in successBody (Response payload)
 		String successbody=response.jsonPath().getString("name");
 		System.out.println("name field in JSON path received :"+successbody);
-		Assert.assertEquals("joey", successbody);
+		Assert.assertEquals(successbody,"joey");
 		
 	}
 }

@@ -1,6 +1,6 @@
 package part_1;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
@@ -10,7 +10,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class TC_003_Get_ValidateHeaders {
 	@Test
-	void getUserDetails() {
+	void getValidateHeaders() {
 		// TODO Auto-generated method stub
 
 		//specify base URI
@@ -30,19 +30,19 @@ public class TC_003_Get_ValidateHeaders {
 		//validate status code
 		int statuscode=response.getStatusCode();
 		System.out.println("status code received: "+statuscode);
-		Assert.assertEquals(200, statuscode);
+		Assert.assertEquals(statuscode,200);
 		
 		// ***validating headers***
 		
 		//1. content-type
 		String ContentType=response.header("Content-Type");
 		System.out.println("Content-Type received: " + ContentType);
-		Assert.assertEquals("application/json", ContentType);
+		Assert.assertEquals(ContentType,"application/json");
 		
 		//1. Content-Encoding
 		String ContentEncoding=response.header("Content-Encoding");
 		System.out.println("Content-Encoding received: " + ContentEncoding);
-		Assert.assertEquals("gzip", ContentEncoding);
+		Assert.assertEquals(ContentEncoding,"gzip");
 
 	}
 }
