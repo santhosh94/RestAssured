@@ -3,7 +3,7 @@ package part_1;
 import static org.testng.Assert.assertEquals;
 
 import org.apache.http.client.methods.AbortableHttpRequest;
-import org.junit.Assert;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
@@ -34,12 +34,12 @@ public class TC_001_Get_Request {
 		// asserting status code
 		int statuscode = response.statusCode();
 		System.out.println("Status code received: " + statuscode);
-		Assert.assertEquals(200, statuscode);
+		Assert.assertEquals(statuscode,200);
 
 		// assert status line
 		String statusline = response.getStatusLine();
 		System.out.println("Status line: " + statusline);
-		Assert.assertEquals("HTTP/1.1 200 OK", statusline);
+		Assert.assertEquals(statusline,"HTTP/1.1 200 OK");
 	}
 
 }
